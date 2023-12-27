@@ -28,4 +28,8 @@ These two notebook are brief introduction of basic grammar of Python.
 
 You guys may play an important role in this part of design.
 
-The core of this design is to simulate electromagnetic environment and implementing optimization 
+The core of this design is to simulate electromagnetic environment and implementing optimization.
+
+Some opensource python library on Github, including [FDTD](https://github.com/flaport/fdtd), [EMpy](https://github.com/lbolla/EMpy), are friendly for users.
+
+Besides, it is necessary to learn some numerical solutions of differential equation, such as Runge-Kuta method(RK-4) is the most classic method and forward/backward finite difference method. Some python libraries have already had solvers. However, it is a wise choice to learn a little bit of linear algebra for better understanding. 
