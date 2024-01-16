@@ -125,7 +125,43 @@ def fieldCalc(Pmin = None,Pmax = None):
             print((i,j))
     return u
 
+
+def fieldCalc3D(x = None,r = None,length = None):
+    '''
+    x: the coordinate of projectile
+    r: radius of projectile
+    length: length of projectile
+    '''
+    u = np.zeros((Nx+1,Ny+1,Nz+1))
+    v = np.zeros((Nx+1,Ny+1,Nz+1))
+    i,j,k = 0,0,0
+    xc = np.linspace(fieldLeft,fieldRight,Nx+1)# This function simlated the quater space of the whole calculating field to reduce the calculation amount.
+    yc = np.linspace(0,fieldUp,Ny+1)
+    zc = np.linspace(0,fieldThick,Nz+1)
+    for i in np.arange(Nx+1):
+        for j in np.arange(Ny+1):
+            for k in np.arange(Nz+1):
+                H = integ1(xc[i],yc[j],zc[k])
+                position = np.array([xc[i],yc[j],zc[k]])
+                if x != None:
+                    if position[0]>x and position[0]<x+length:
+                        if np.linalg.norm(np.array([yc[j],zc[k]]))<r:
+                            B = H*mur*mu0
+                        else:
+                            B = H*mu0
+                    else:
+                        B = H*mu0
+                else:
+                    B = H*mu0
+                u[int(i),int(j),int(k)] = B
+                v[int(i),int(j),int(k)] = H
+    return u,v
+
 x1,X,Y,Z = 0,0,0,0 #initialize crucial variables
+
+'''
+This code is running to test the 3D solver of the magnetic field with a idealized steel projectile
+
 start = time.time()
 Bfield = fieldCalc()
 end = time.time()
@@ -135,7 +171,7 @@ plt.imshow(Bfield, cmap='viridis', interpolation='nearest')
 plt.colorbar()
 plt.show()
 '''
-
+'''
 Calculation example for this solver
 
 print(integ1(0.5,0,0,-lengthSolenoid,lengthSolenoid))
