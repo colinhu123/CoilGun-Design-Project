@@ -61,18 +61,16 @@ $$\vec{B} = \int_C \frac{\mu_0}{4\pi}\cdot\frac{Id\vec{l}\times \vec{r}}{\left |
 
 In this case, due to the shape of wire, solenoid whose radius is a constant, 2 parameters is required to describe the position of $d\vec{l}$. The coordination is $(x,rsin\theta,rcos\theta)$. Thus, the overall integration equation is shown below. The given point is $(x_1,y_1,z_1)$. $L$ and $R$ is the left bound of solenoid and $R$ is the right bound of solenoid.
 
+
 $$\vec{B}_{x_1y_1z_1}=  \mu_r \int _L ^R \int_0 ^{2\pi} \frac{\mu_0}{4\pi}\cdot\frac{Jdx\cdot rd\theta \begin{pmatrix}
  0\\-cos\theta
  \\sin \theta
-
 \end{pmatrix}\times \begin{pmatrix}
  x_1-x\\y_1-rsin\theta
  \\z_1 -rcos\theta
-
 \end{pmatrix}}{\left |\begin{pmatrix}
  x_1-x\\y_1-rsin\theta
  \\z_1 -rcos\theta
-
 \end{pmatrix}\right |^3}  $$
 
 This integration computation method has been implemented into the function `field3CalcDMesh` in `solver.py`.
@@ -87,9 +85,9 @@ This section is used to process data and visualize the computating result. To pr
 
 In python, lots of reliable and robust visualization libraries are available such as `matplotlib.pyplot`,`seaborn` etc. In this case, `matplotlib.pyplot` is used to visualize the field.
 
-![linear interpolation](./src/linearVisual.png)
+![linear interpolation](linearVisual.png)
 
-![Alt text](./src/preciseSimulation.png)
+![Alt text](preciseSimulation.png)
 
 ## Optimization Theory
 
